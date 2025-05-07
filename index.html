@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeSage - AI-Powered Static Code Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #1a202c; /* Dark background for hero */
+        }
+        .section-title {
+            @apply text-3xl font-bold text-center mb-12 text-gray-800;
+        }
+        .feature-card {
+            @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+        }
+        .benefit-card {
+            @apply bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300;
+        }
+        .cta-button {
+            @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105;
+        }
+        .nav-link {
+            @apply text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300;
+        }
+        .nav-link-mobile {
+            @apply text-gray-700 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300;
+        }
+        .footer-bg {
+            background-color: #2d3748; /* Darker background for footer */
+        }
+        /* Custom animation for elements appearing on scroll (optional, can be expanded with JS) */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <nav class="bg-gray-800 fixed w-full z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0">
+                        <span class="text-white text-2xl font-bold">CodeSage</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="#hero" class="nav-link">Home</a>
+                        <a href="#features" class="nav-link">Features</a>
+                        <a href="#benefits" class="nav-link">Benefits</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#hero" class="nav-link-mobile">Home</a>
+                <a href="#features" class="nav-link-mobile">Features</a>
+                <a href="#benefits" class="nav-link-mobile">Benefits</a>
+                <a href="#contact" class="nav-link-mobile">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero-bg text-white pt-32 pb-20 md:pt-40 md:pb-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <svg class="w-20 h-20 mx-auto mb-6 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.625a3.75 3.75 0 01-3.75 3.75H2.25m19.5 0h-3.75a3.75 3.75 0 01-3.75-3.75V3.104m0 17.792v-5.625a3.75 3.75 0 00-3.75-3.75H2.25m19.5 0h-3.75a3.75 3.75 0 00-3.75-3.75v5.625m0 0H9.75m0 0c1.095 0 2.034.303 2.849.816m0 0A5.23 5.23 0 0115 12.75c0 .166-.004.33-.012.493m0 0c.295-.228.63-.417.99-.571m-2.837 6.428A5.23 5.23 0 019 12.75c0-.166.004-.33.012-.493m0 0c-.295.228-.63.417-.99.571M15 12.75a3 3 0 01-3 3H9.75a3 3 0 01-3-3V9.75a3 3 0 013-3h2.25a3 3 0 013 3v3zm0 0c0 .166-.004.33-.012.493" />
+            </svg>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                CodeSage
+            </h1>
+            <p class="text-xl sm:text-2xl text-blue-300 mb-8">
+                AI-Powered Static Code Analysis Platform for Google Apigee and IBM webMethods.
+            </p>
+            <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
+                CodeSage ensures code compliance, detects security vulnerabilities, and enforces coding standards, streamlining your development lifecycle.
+            </p>
+            <a href="#contact" class="cta-button text-lg">Book a Demo</a>
+        </div>
+    </section>
+
+    <section id="features" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title">Powerful Features for Modern Development</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card fade-in-up">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014A8.003 8.003 0 0122 12c0 3-1 7-6.343 6.657zM9.5 9.5c-.786.786-1.768 1.293-2.596 1.437A5.002 5.002 0 012 12c0 .277.022.55.065.815" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">CI Pipeline Integration</h3>
+                    <p class="text-gray-600">Automated static code reviews, intelligent PR approvals, and seamless merge governance, all without manual effort.</p>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Apigeelint Integration</h3>
+                    <p class="text-gray-600">Leverages open-source Apigeelint for comprehensive linting and compliance checks for Google Apigee.</p>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
+                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">IBM webMethods Support</h3>
+                    <p class="text-gray-600">Natively built proprietary solution for flow service static code review in IBM webMethods.</p>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">AI + Extensible Architecture</h3>
+                    <p class="text-gray-600">Integrates with LLMs for intelligent, rule-based analysis. Easily extendable for custom rules and governance needs.</p>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Pull Request Management</h3>
+                    <p class="text-gray-600">Manual review triggers, auto PR approvals, and change request enforcement to maintain code quality.</p>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">CodeSage Portal</h3>
+                    <p class="text-gray-600">Intuitive rule configuration, visibility into policy deviations, actionable analytics, and comprehensive reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-16 md:py-24 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title">Key Benefits of Using CodeSage</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="benefit-card fade-in-up">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Accelerates Development</h3>
+                    <p class="text-gray-600">Enables faster code delivery by automating reviews and reducing manual bottlenecks.</p>
+                </div>
+                <div class="benefit-card fade-in-up">
+                     <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697A7.002 7.002 0 0121 12a7.002 7.002 0 01-13.165 4.303A7.002 7.002 0 013 12c0-1.848.715-3.535 1.879-4.797M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Ensures Code Quality</h3>
+                    <p class="text-gray-600">Enforces coding standards and best practices through customizable review rules and automation.</p>
+                </div>
+                <div class="benefit-card fade-in-up">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6.879-6.879A4.002 4.002 0 0112 6.002c1.386 0 2.634.69 3.44 1.753M12 15V9m0 6c-1.386 0-2.634-.69-3.44-1.753M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Enhances Security</h3>
+                    <p class="text-gray-600">Detects and blocks insecure code early by integrating static analysis and policy checks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 hero-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Elevate Your Code Governance?</h2>
+            <p class="text-lg text-gray-300 mb-8">
+                Discover how CodeSage can transform your development process.
+                Powered by <a href="https://masna.ai/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">Masna AI</a>.
+            </p>
+            <a href="https://masna.ai/" target="_blank" rel="noopener noreferrer" class="cta-button text-lg mb-6 inline-block">
+                Book For Demo
+            </a>
+            <p class="text-lg text-gray-300">
+                Or contact us directly at: <a href="mailto:contact@masna.ai" class="text-blue-400 hover:text-blue-300 underline">contact@masna.ai</a>
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer-bg text-gray-400 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="currentYear"></span> CodeSage by Masna AI. All rights reserved.</p>
+            <p class="text-sm mt-2">
+                <a href="#hero" class="hover:text-white">Home</a> |
+                <a href="#features" class="hover:text-white">Features</a> |
+                <a href="#benefits" class="hover:text-white">Benefits</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = menuButton.querySelector('svg:first-child');
+        const closeIcon = menuButton.querySelector('svg:last-child');
+
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuButton.setAttribute('aria-expanded', 'false');
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Don't prevent default if it's not a local link (e.g. mailto or external)
+                if (this.hash !== "") {
+                    // Check if the target element exists
+                    const targetElement = document.querySelector(this.hash);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Simple scroll reveal animation for elements with 'fade-in-up' class
+        const scrollElements = document.querySelectorAll('.fade-in-up');
+
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+
+        const hideScrollElement = (element) => {
+            element.classList.remove('visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                } else {
+                    // Optional: hide element again if it's scrolled out of view
+                    // hideScrollElement(el); 
+                }
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+        // Trigger on load as well for elements already in view
+        handleScrollAnimation();
+
+    </script>
+</body>
+</html>
