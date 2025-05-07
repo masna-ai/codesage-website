@@ -26,12 +26,8 @@
         .cta-button {
             @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105;
         }
-        .nav-link {
-            @apply text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300;
-        }
-        .nav-link-mobile {
-            @apply text-gray-700 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300;
-        }
+        
+        
         .footer-bg {
             background-color: #2d3748; /* Darker background for footer */
         }
@@ -49,7 +45,7 @@
 </head>
 <body class="bg-gray-50 text-gray-700">
 
-    <nav class="bg-gray-800 fixed w-full z-50 shadow-md">
+    <nav class="bg-gray-800 bg-opacity-80 backdrop-blur-md fixed w-full z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -59,10 +55,10 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-4">
-                        <a href="#hero" class="nav-link">Home</a>
-                        <a href="#features" class="nav-link">Features</a>
-                        <a href="#benefits" class="nav-link">Benefits</a>
-                        <a href="#contact" class="nav-link">Contact</a>
+                        <a href="#hero" class="text-white font-semibold px-3 py-2 rounded-md text-base transition duration-300 relative hover:underline hover:decoration-blue-500 hover:decoration-2">Home</a>
+                        <a href="#features" class="text-white font-semibold px-3 py-2 rounded-md text-base transition duration-300 relative hover:underline hover:decoration-blue-500 hover:decoration-2">Features</a>
+                        <a href="#benefits" class="text-white font-semibold px-3 py-2 rounded-md text-base transition duration-300 relative hover:underline hover:decoration-blue-500 hover:decoration-2">Benefits</a>
+                        <a href="#contact" class="text-white font-semibold px-3 py-2 rounded-md text-base transition duration-300 relative hover:underline hover:decoration-blue-500 hover:decoration-2">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden flex items-center">
@@ -78,12 +74,12 @@
                 </div>
             </div>
         </div>
-        <div class="md:hidden hidden" id="mobile-menu">
+        <div class="md:hidden hidden bg-gray-900 bg-opacity-95" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#hero" class="nav-link-mobile">Home</a>
-                <a href="#features" class="nav-link-mobile">Features</a>
-                <a href="#benefits" class="nav-link-mobile">Benefits</a>
-                <a href="#contact" class="nav-link-mobile">Contact</a>
+                <a href="#hero" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-semibold transition-colors duration-300">Home</a>
+                <a href="#features" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-semibold transition-colors duration-300">Features</a>
+                <a href="#benefits" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-semibold transition-colors duration-300">Benefits</a>
+                <a href="#contact" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-semibold transition-colors duration-300">Contact</a>
             </div>
         </div>
     </nav>
@@ -108,54 +104,54 @@
 
     <section id="features" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Powerful Features for Modern Development</h2>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-4 text-gray-900">Features</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="feature-card fade-in-up">
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014A8.003 8.003 0 0122 12c0 3-1 7-6.343 6.657zM9.5 9.5c-.786.786-1.768 1.293-2.596 1.437A5.002 5.002 0 012 12c0 .277.022.55.065.815" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">CI Pipeline Integration</h3>
-                    <p class="text-gray-600">Automated static code reviews, intelligent PR approvals, and seamless merge governance, all without manual effort.</p>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">CI Pipeline Integration</h3>
+                    <p class="text-xl text-gray-700">Automated static code reviews, intelligent PR approvals, and seamless merge governance, all without manual effort.</p>
                 </div>
 
                 <div class="feature-card fade-in-up">
                      <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Apigeelint Integration</h3>
-                    <p class="text-gray-600">Leverages open-source Apigeelint for comprehensive linting and compliance checks for Google Apigee.</p>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">Apigeelint Integration</h3>
+                    <p class="text-xl text-gray-700">Leverages open-source Apigeelint for comprehensive linting and compliance checks for Google Apigee.</p>
                 </div>
 
                 <div class="feature-card fade-in-up">
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
                          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">IBM webMethods Support</h3>
-                    <p class="text-gray-600">Natively built proprietary solution for flow service static code review in IBM webMethods.</p>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">IBM webMethods Support</h3>
+                    <p class="text-xl text-gray-700">Natively built proprietary solution for flow service static code review in IBM webMethods.</p>
                 </div>
 
                 <div class="feature-card fade-in-up">
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">AI + Extensible Architecture</h3>
-                    <p class="text-gray-600">Integrates with LLMs for intelligent, rule-based analysis. Easily extendable for custom rules and governance needs.</p>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">AI + Extensible Architecture</h3>
+                    <p class="text-xl text-gray-700">Integrates with LLMs for intelligent, rule-based analysis. Easily extendable for custom rules and governance needs.</p>
                 </div>
 
                 <div class="feature-card fade-in-up">
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Pull Request Management</h3>
-                    <p class="text-gray-600">Manual review triggers, auto PR approvals, and change request enforcement to maintain code quality.</p>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">Pull Request Management</h3>
+                    <p class="text-xl text-gray-700">Manual review triggers, auto PR approvals, and change request enforcement to maintain code quality.</p>
                 </div>
 
                 <div class="feature-card fade-in-up">
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">CodeSage Portal</h3>
-                    <p class="text-gray-600">Intuitive rule configuration, visibility into policy deviations, actionable analytics, and comprehensive reporting.</p>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">CodeSage Portal</h3>
+                    <p class="text-xl text-gray-700">Intuitive rule configuration, visibility into policy deviations, actionable analytics, and comprehensive reporting.</p>
                 </div>
             </div>
         </div>
@@ -163,28 +159,29 @@
 
     <section id="benefits" class="py-16 md:py-24 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Key Benefits of Using CodeSage</h2>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-4 text-gray-900">Benefits</h2>
+            <p class="text-xl md:text-2xl text-center mb-12 text-gray-600 font-medium">Why teams love using CodeSage for their code governance</p>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="benefit-card fade-in-up">
                     <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white mb-4">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Accelerates Development</h3>
-                    <p class="text-gray-600">Enables faster code delivery by automating reviews and reducing manual bottlenecks.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Accelerates Development</h3>
+                    <p class="text-lg text-gray-700">Enables faster code delivery by automating reviews and reducing manual bottlenecks.</p>
                 </div>
                 <div class="benefit-card fade-in-up">
                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white mb-4">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697A7.002 7.002 0 0121 12a7.002 7.002 0 01-13.165 4.303A7.002 7.002 0 013 12c0-1.848.715-3.535 1.879-4.797M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Ensures Code Quality</h3>
-                    <p class="text-gray-600">Enforces coding standards and best practices through customizable review rules and automation.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Ensures Code Quality</h3>
+                    <p class="text-lg text-gray-700">Enforces coding standards and best practices through customizable review rules and automation.</p>
                 </div>
                 <div class="benefit-card fade-in-up">
                     <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white mb-4">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6.879-6.879A4.002 4.002 0 0112 6.002c1.386 0 2.634.69 3.44 1.753M12 15V9m0 6c-1.386 0-2.634-.69-3.44-1.753M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Enhances Security</h3>
-                    <p class="text-gray-600">Detects and blocks insecure code early by integrating static analysis and policy checks.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Enhances Security</h3>
+                    <p class="text-lg text-gray-700">Detects and blocks insecure code early by integrating static analysis and policy checks.</p>
                 </div>
             </div>
         </div>
@@ -218,30 +215,36 @@
     </footer>
 
     <script>
+    document.addEventListener('DOMContentLoaded', function () {
         // JavaScript for Mobile Menu Toggle
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const hamburgerIcon = menuButton.querySelector('svg:first-child');
-        const closeIcon = menuButton.querySelector('svg:last-child');
+        if (menuButton && mobileMenu) {
+            const hamburgerIcon = menuButton.querySelector('svg:first-child');
+            const closeIcon = menuButton.querySelector('svg:last-child');
 
-        menuButton.addEventListener('click', () => {
-            const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
-            menuButton.setAttribute('aria-expanded', !expanded);
-            mobileMenu.classList.toggle('hidden');
-            hamburgerIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuButton.setAttribute('aria-expanded', 'false');
-                mobileMenu.classList.add('hidden');
-                hamburgerIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
+            menuButton.addEventListener('click', () => {
+                const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+                menuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+                if (hamburgerIcon && closeIcon) {
+                    hamburgerIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                }
             });
-        });
-        
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    if (hamburgerIcon && closeIcon) {
+                        hamburgerIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
+                });
+            });
+        }
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -260,7 +263,8 @@
         });
 
         // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const yearElem = document.getElementById('currentYear');
+        if (yearElem) yearElem.textContent = new Date().getFullYear();
 
         // Simple scroll reveal animation for elements with 'fade-in-up' class
         const scrollElements = document.querySelectorAll('.fade-in-up');
@@ -296,7 +300,7 @@
         });
         // Trigger on load as well for elements already in view
         handleScrollAnimation();
-
+    });
     </script>
 </body>
 </html>
